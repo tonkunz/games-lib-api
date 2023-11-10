@@ -1,16 +1,20 @@
-import { IsNotEmpty, Length } from "class-validator";
+import { IsNotEmpty, Length } from 'class-validator';
 
 export class CreateGameBody {
-    @IsNotEmpty()
-    @Length(10, 200)
-    description: string;
+  @IsNotEmpty({
+    message: 'O campo nome não pode ser vazio',
+  })
+  name: string;
 
-    gender: string;
+  @IsNotEmpty({
+    message: 'A descrição não pode ser vazia',
+  })
+  @Length(10, 300, {
+    message: 'A descrição deve ter no mínimo 10 caracteres e no máximo 300',
+  })
+  description: string;
 
-    @IsNotEmpty({
-        message: "O campo nome não pode ser vazio"
-    })
-    name: string;
+  gender: string;
 
-    platforms: string;
+  platforms: string;
 }

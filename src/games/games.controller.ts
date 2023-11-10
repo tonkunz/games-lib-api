@@ -1,10 +1,10 @@
 import { Body, Controller, Post, Get } from '@nestjs/common';
 import { CreateGameBody } from './dtos/create-game-body';
-import { GamesRepository } from './repositories/games-repository';
+import { GamesService } from './services/games.service';
 
 @Controller()
 export class GamesController {
-    constructor(private gamesRepository: GamesRepository) {}
+  constructor(private gamesService: GamesService) {}
 
   @Get('games')
   getGames() {
@@ -13,12 +13,11 @@ export class GamesController {
 
   @Post('game')
   async postGame(@Body() body: CreateGameBody) {
-    const { name, platforms, description, gender } = body;
-
-    const newGame = await this.gamesRepository.create(name, platforms, description, gender);
+    const newGame = await this.gamesService.createGameRegister(body);
 
     return {
-      newGame
-    }
+      newGame,
+      message: 'Jogo cadastrado com sucesso',
+    };
   }
 }
