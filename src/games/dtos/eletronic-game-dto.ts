@@ -1,6 +1,6 @@
 import { IsNotEmpty, Length } from 'class-validator';
 
-export class CreateGameBody {
+export class EletronicGameDTO {
   @IsNotEmpty({
     message: 'O campo nome não pode ser vazio',
   })

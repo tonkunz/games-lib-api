@@ -25,4 +25,44 @@ export class PrismaGamesRepository implements GamesRepository {
 
     return newGame;
   }
+
+  async edit(
+    id: string,
+    name: string,
+    platforms: string,
+    description: string,
+    gender: string,
+  ) {
+    const updatedData = await this.prisma.eletronicGame.update({
+      where: { id },
+      data: {
+        name,
+        platforms,
+        description,
+        gender,
+      },
+    });
+
+    return updatedData;
+  }
+
+  async list() {
+    const gamesList = await this.prisma.eletronicGame.findMany();
+
+    return gamesList;
+  }
+
+  async findById(id: string) {
+    const gameFinded = await this.prisma.eletronicGame.findUnique({
+      where: { id },
+    });
+
+    return gameFinded;
+  }
+
+  async delete(id: string) {
+    await this.prisma.eletronicGame.delete({
+      where: { id },
+    });
+  }
 }

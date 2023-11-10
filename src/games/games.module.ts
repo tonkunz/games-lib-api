@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { GamesController } from './games.controller';
+import { GamesController } from './controllers/games.controller';
 import { PrismaService } from 'src/database/prisma.service';
 import { GamesRepository } from './repositories/games-repository';
 import { PrismaGamesRepository } from './repositories/prisma-games-repository';
