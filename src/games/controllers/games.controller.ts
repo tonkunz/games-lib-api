@@ -9,7 +9,9 @@ import {
 } from '@nestjs/common';
 import { GamesService } from '../services/games.service';
 import { EletronicGameDTO } from '../dtos/eletronic-game-dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Games routes')
 @Controller('games')
 export class GamesController {
   constructor(private gamesService: GamesService) {}
