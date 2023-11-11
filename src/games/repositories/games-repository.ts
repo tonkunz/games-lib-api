@@ -16,7 +16,7 @@ export abstract class GamesRepository {
     genre: string,
   ): Promise<EletronicGame>;
 
-  abstract list(): Promise<EletronicGame[]>;
+  abstract list(nameFilter: string): Promise<EletronicGame[]>;
 
   abstract findById(id: string): Promise<EletronicGame | null>;
 

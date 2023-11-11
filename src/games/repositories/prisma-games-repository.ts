@@ -46,8 +46,12 @@ export class PrismaGamesRepository implements GamesRepository {
     return updatedData;
   }
 
-  async list() {
-    const gamesList = await this.prisma.eletronicGame.findMany();
+  async list(nameFilter: string = '') {
+    const gamesList = await this.prisma.eletronicGame.findMany({
+      where: {
+        name: { contains: nameFilter },
+      },
+    });
 
     return gamesList;
   }

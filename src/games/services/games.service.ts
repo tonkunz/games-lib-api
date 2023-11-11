@@ -38,8 +38,8 @@ export class GamesService {
     return gameUpdated;
   }
 
-  async listGames(): Promise<EletronicGameDTO[]> {
-    const listGames = await this.gamesRepository.list();
+  async listGames(nameFilter: string = ''): Promise<EletronicGameDTO[]> {
+    const listGames = await this.gamesRepository.list(nameFilter);
 
     return listGames;
   }

@@ -6,6 +6,7 @@ import {
   Param,
   Delete,
   Put,
+  Query,
 } from '@nestjs/common';
 import { GamesService } from '../services/games.service';
 import { EletronicGameDTO } from '../dtos/eletronic-game-dto';
@@ -34,8 +35,8 @@ export class GamesController {
   }
 
   @Get()
-  async getGames() {
-    const gamesList = await this.gamesService.listGames();
+  async getGames(@Query('name') nameFilter: string) {
+    const gamesList = await this.gamesService.listGames(nameFilter);
     return {
       gamesList,
     };
