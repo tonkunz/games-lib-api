@@ -11,13 +11,13 @@ export class PrismaGamesRepository implements GamesRepository {
     name: string,
     platforms: string,
     description: string,
-    gender: string,
+    genre: string,
   ) {
     const newGame = await this.prisma.eletronicGame.create({
       data: {
         id: randomUUID(),
         description,
-        gender,
+        genre,
         name,
         platforms,
       },
@@ -31,7 +31,7 @@ export class PrismaGamesRepository implements GamesRepository {
     name: string,
     platforms: string,
     description: string,
-    gender: string,
+    genre: string,
   ) {
     const updatedData = await this.prisma.eletronicGame.update({
       where: { id },
@@ -39,7 +39,7 @@ export class PrismaGamesRepository implements GamesRepository {
         name,
         platforms,
         description,
-        gender,
+        genre,
       },
     });
 

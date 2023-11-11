@@ -4,5 +4,5 @@ CREATE TABLE "EletronicGame" (
     "name" TEXT NOT NULL,
     "platforms" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "gender" TEXT NOT NULL
+    "genre" TEXT NOT NULL
 );

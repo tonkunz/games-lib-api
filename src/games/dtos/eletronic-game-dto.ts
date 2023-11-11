@@ -28,7 +28,7 @@ export class EletronicGameDTO {
     example: 'AÇÃO, Aventura',
     required: false,
   })
-  gender: string;
+  genre: string;
 
   @ApiProperty({
     example: 'Playstation 2',

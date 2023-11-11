@@ -15,5 +15,5 @@ model EletronicGame {
   name        String
   platforms   String
   description String
-  gender      String
+  genre       String
 }

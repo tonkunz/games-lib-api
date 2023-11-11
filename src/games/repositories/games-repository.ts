@@ -5,7 +5,7 @@ export abstract class GamesRepository {
     name: string,
     platforms: string,
     description: string,
-    gender: string,
+    genre: string,
   ): Promise<EletronicGame>;
 
   abstract edit(
@@ -13,7 +13,7 @@ export abstract class GamesRepository {
     name: string,
     platforms: string,
     description: string,
-    gender: string,
+    genre: string,
   ): Promise<EletronicGame>;
 
   abstract list(): Promise<EletronicGame[]>;

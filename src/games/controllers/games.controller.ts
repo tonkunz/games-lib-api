@@ -36,7 +36,6 @@ export class GamesController {
   @Get()
   async getGames() {
     const gamesList = await this.gamesService.listGames();
-
     return {
       gamesList,
     };

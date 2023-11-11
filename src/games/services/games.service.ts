@@ -9,13 +9,13 @@ export class GamesService {
   async createGameRegister(
     gameBody: EletronicGameDTO,
   ): Promise<EletronicGameDTO> {
-    const { name, platforms, description, gender } = gameBody;
+    const { name, platforms, description, genre } = gameBody;
 
     const newGame = await this.gamesRepository.create(
       name,
       platforms,
       description,
-      gender,
+      genre,
     );
 
     return newGame;
@@ -25,14 +25,14 @@ export class GamesService {
     id: string,
     gameBody: EletronicGameDTO,
   ): Promise<EletronicGameDTO> {
-    const { name, platforms, description, gender } = gameBody;
+    const { name, platforms, description, genre } = gameBody;
 
     const gameUpdated = await this.gamesRepository.edit(
       id,
       name,
       platforms,
       description,
-      gender,
+      genre,
     );
 
     return gameUpdated;
